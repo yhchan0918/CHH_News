@@ -1,18 +1,34 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <v-row>
+      <v-col
+        sm="4"
+        v-for="topheadline in allTopHeadlines"
+        :key="topheadline.title"
+      >
+        <TheCard :topheadline="topheadline" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import TheCard from "@/components/TheCard.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
-  name: 'Home',
+  name: "Home",
+  data: () => ({
+    cards: [{ flex: 12 }, { flex: 6 }, { flex: 6 }],
+  }),
+  methods: {
+    ...mapActions(["fetchTopHeadlines"]),
+  },
+  computed: mapGetters(["allTopHeadlines"]),
+  created() {
+    this.fetchTopHeadlines();
+  },
   components: {
-    HelloWorld
-  }
-}
+    TheCard,
+  },
+};
 </script>
