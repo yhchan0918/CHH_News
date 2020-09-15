@@ -1,14 +1,11 @@
 <template>
   <div>
-    <v-container fluid class="fill-height">
+    <v-container>
       <h1>Top Headline</h1>
-      <v-row align="center">
-        <v-col
-          sm="4"
-          v-for="topheadline in allTopHeadlines"
-          :key="topheadline.title"
-        >
-          <TheCard :topheadline="topheadline" />
+      <v-row>
+        <v-col sm="3" offset-lg="1"><SideBar /></v-col>
+        <v-col sm="9" lg="7">
+          <NewsDisplay :topheadlines="allTopHeadlines" />
         </v-col>
       </v-row>
     </v-container>
@@ -16,13 +13,11 @@
 </template>
 
 <script>
-import TheCard from "@/components/TheCard.vue";
+import NewsDisplay from "@/components/NewsDisplay.vue";
+import SideBar from "@/components/Filter/SideBar.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Home",
-  data: () => ({
-    cards: [{ flex: 12 }, { flex: 6 }, { flex: 6 }],
-  }),
   methods: {
     ...mapActions(["fetchTopHeadlines"]),
   },
@@ -31,7 +26,8 @@ export default {
     this.fetchTopHeadlines();
   },
   components: {
-    TheCard,
+    NewsDisplay,
+    SideBar,
   },
 };
 </script>

@@ -2,29 +2,29 @@
   <v-card
     outlined
     width="500"
-    class="mx-auto card-outter"
+    class=""
     height="620"
     style="position: relative;padding-bottom: 50px;"
   >
-    <v-img :src="topheadline.urlToImage" height="280"></v-img>
+    <v-img :src="news.urlToImage" height="280"></v-img>
     <v-list-item class="">
       <v-list-item-content>
         <v-list-item-title class="font-weight-bold">{{
-          topheadline.title
+          news.title
         }}</v-list-item-title>
-        <v-list-item-subtitle>by {{ topheadline.author }}</v-list-item-subtitle>
+        <v-list-item-subtitle>by {{ news.author }}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
 
     <v-card-text>
-      {{ topheadline.description }}
+      {{ news.description }}
     </v-card-text>
     <v-spacer></v-spacer>
     <v-card-actions
       style="position: absolute;
               bottom: 0;"
     >
-      <v-btn text color="#EF5350" :href="topheadline.url">
+      <v-btn text color="#EF5350" :href="news.url">
         Read
       </v-btn>
       <v-spacer></v-spacer>
@@ -49,7 +49,7 @@ export default {
       active: false,
     };
   },
-  props: ["topheadline"],
+  props: ["news"],
 };
 </script>
 
