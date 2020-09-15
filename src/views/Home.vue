@@ -1,14 +1,17 @@
 <template>
   <div>
-    <v-row>
-      <v-col
-        sm="4"
-        v-for="topheadline in allTopHeadlines"
-        :key="topheadline.title"
-      >
-        <TheCard :topheadline="topheadline" />
-      </v-col>
-    </v-row>
+    <v-container fluid class="fill-height">
+      <h1>Top Headline</h1>
+      <v-row align="center">
+        <v-col
+          sm="4"
+          v-for="topheadline in allTopHeadlines"
+          :key="topheadline.title"
+        >
+          <TheCard :topheadline="topheadline" />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 

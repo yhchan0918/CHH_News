@@ -11,7 +11,7 @@ const getters = {
 const mutations = {
   setTopHeadlines: (state, topheadlines) =>
     (state.topheadlines = topheadlines.filter(
-      (article) => article.description && article.urlToImage
+      (article) => article.description && article.urlToImage && article.author
     )),
 };
 

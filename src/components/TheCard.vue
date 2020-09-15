@@ -1,27 +1,37 @@
 <template>
-  <v-card max-width="344" class="mx-auto" height="450">
-    <v-list-item>
+  <v-card
+    outlined
+    width="500"
+    class="mx-auto card-outter"
+    height="620"
+    style="position: relative;padding-bottom: 50px;"
+  >
+    <v-img :src="topheadline.urlToImage" height="280"></v-img>
+    <v-list-item class="">
       <v-list-item-content>
-        <v-list-item-title class="headline">{{
+        <v-list-item-title class="font-weight-bold">{{
           topheadline.title
         }}</v-list-item-title>
         <v-list-item-subtitle>by {{ topheadline.author }}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
 
-    <v-img :src="topheadline.urlToImage" height="194"></v-img>
-
     <v-card-text>
       {{ topheadline.description }}
     </v-card-text>
-
-    <v-card-actions>
-      <v-btn text color="deep-purple accent-4" :href="topheadline.url">
+    <v-spacer></v-spacer>
+    <v-card-actions
+      style="position: absolute;
+              bottom: 0;"
+    >
+      <v-btn text color="#EF5350" :href="topheadline.url">
         Read
       </v-btn>
-
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <v-btn @click="active = !active" v-if="!active" icon>
+        <v-icon>mdi-heart-outline</v-icon>
+      </v-btn>
+      <v-btn @click="active = !active" v-else color="pink lighten-1" icon>
         <v-icon>mdi-heart</v-icon>
       </v-btn>
       <v-btn icon>
@@ -33,6 +43,7 @@
 
 <script>
 export default {
+  name: "TheCard",
   data() {
     return {
       active: false,
@@ -42,4 +53,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.v-list-item__title {
+  white-space: normal !important;
+}
+</style>
