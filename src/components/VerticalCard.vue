@@ -3,7 +3,7 @@
     outlined
     width="500"
     class=""
-    height="620"
+    height="700"
     style="position: relative;padding-bottom: 50px;"
   >
     <v-img :src="news.urlToImage" height="280"></v-img>
@@ -49,7 +49,11 @@ export default {
       active: false,
     };
   },
-  props: ["news"],
+  props: {
+    news: {
+      type: Object,
+    },
+  },
 };
 </script>
 

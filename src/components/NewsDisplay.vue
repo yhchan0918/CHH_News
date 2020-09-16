@@ -7,19 +7,19 @@
         v-for="(topheadline, index) in topheadlines"
         :key="index"
       >
-        <TheCard :news="topheadline" />
+        <VerticalCard :news="topheadline" />
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-import TheCard from "@/components/TheCard.vue";
+import VerticalCard from "@/components/VerticalCard.vue";
 export default {
   name: "NewsDisplay",
   props: ["topheadlines"],
   components: {
-    TheCard,
+    VerticalCard,
   },
 };
 </script>

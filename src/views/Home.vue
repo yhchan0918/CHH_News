@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <h1>Top Headline</h1>
+      <h1 class="font-weight-medium">Top Headline</h1>
       <v-row>
         <v-col sm="3" offset-lg="1"><SideBar /></v-col>
         <v-col sm="9" lg="7">
