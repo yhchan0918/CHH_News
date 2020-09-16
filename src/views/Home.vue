@@ -1,10 +1,9 @@
 <template>
   <div>
     <v-container>
-      <h1 class="font-weight-medium">Top Headline</h1>
+      <h1 class="">Top Headline</h1>
       <v-row>
-        <v-col sm="3" offset-lg="1"><SideBar /></v-col>
-        <v-col sm="9" lg="7">
+        <v-col>
           <NewsDisplay :topheadlines="allTopHeadlines" />
         </v-col>
       </v-row>
@@ -14,7 +13,7 @@
 
 <script>
 import NewsDisplay from "@/components/NewsDisplay.vue";
-import SideBar from "@/components/Filter/SideBar.vue";
+
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Home",
@@ -27,7 +26,6 @@ export default {
   },
   components: {
     NewsDisplay,
-    SideBar,
   },
 };
 </script>

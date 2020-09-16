@@ -9,12 +9,18 @@
           </v-col>
 
           <v-col cols="7" class="text-left pt-0 mb-0 ">
-            <v-row class="flex-column ma-0 pa-0 fill-height">
+            <v-row
+              class="flex-column ma-0 pa-0 fill-height"
+              align-content="center"
+            >
               <v-col class="text-h6">
                 {{ news.title }}
               </v-col>
               <v-col class="text-caption">
-                {{ news.publishedAt }}
+                <span
+                  ><v-icon class="pb-1" size="18">mdi-clock-outline</v-icon
+                  >{{ news.publishedAt }}</span
+                >
               </v-col>
               <v-col class="text-body-2">
                 {{ news.description }}

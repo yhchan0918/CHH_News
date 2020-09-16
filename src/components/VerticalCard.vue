@@ -3,7 +3,7 @@
     outlined
     width="500"
     class=""
-    height="700"
+    height="100%"
     style="position: relative;padding-bottom: 50px;"
   >
     <v-img :src="news.urlToImage" height="280"></v-img>

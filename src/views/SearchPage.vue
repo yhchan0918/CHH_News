@@ -12,12 +12,13 @@
             outlined
             flat
             hide-details
-            class="mx-4 "
-            label="Search"
+            clearable
+            placeholder="Search"
           ></v-text-field>
         </v-col>
       </v-row>
       <v-row>
+        <v-col cols><FilterBar /></v-col>
         <v-col cols="12" v-for="news in allNews" :key="news.title">
           <HorizontalCard :news="news" />
         </v-col>
@@ -27,6 +28,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
+import FilterBar from "@/components/Filter/FilterBar.vue";
 import HorizontalCard from "@/components/HorizontalCard.vue";
 export default {
   name: "SeachPage",
@@ -37,10 +39,20 @@ export default {
   },
   methods: {
     ...mapActions(["fetchNews"]),
+    checkSearch() {
+      if (this.$route.query.q != "") {
+        this.searchField = this.$route.query.q;
+        this.fetchNews(this.$route.query.q);
+      }
+    },
+  },
+  mounted() {
+    this.checkSearch();
   },
   computed: mapGetters(["allNews"]),
   components: {
     HorizontalCard,
+    FilterBar,
   },
 };
 </script>

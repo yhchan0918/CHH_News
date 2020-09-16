@@ -1,9 +1,9 @@
 import axios from "axios";
 // Filter Function
-var filter = ["urlToImage", "author", "description"];
+var key = ["urlToImage", "author", "description"];
 function validateFilter(articles) {
-  for (var key in filter) {
-    if (articles[key === null]) {
+  for (var i = 0; i < articles.length; i++) {
+    if (articles[key[i]] === null) {
       return false;
     }
   }
@@ -19,19 +19,43 @@ const getters = {
 };
 
 const mutations = {
-  setNews: (state, news) => (state.news = news.filter(validateFilter)),
+  setNews: (state, news) =>
+    (state.news = news
+      .filter(validateFilter)
+      .filter(
+        (v, i, a) =>
+          a.findIndex(
+            (t) => t.title === v.title && t.urlToImage === v.urlToImage
+          ) === i
+      )),
 };
 
 const actions = {
-  async fetchNews({ commit }, value) {
+  async fetchNews({ commit }, query) {
     try {
       let response = await axios.get(`${state.apiUrl}`, {
         params: {
-          q: value,
+          q: query,
           apiKey: `${state.apiKey}`,
         },
       });
-      console.log(response.data);
+
+      commit("setNews", response.data.articles);
+    } catch (err) {
+      console.log(err);
+      commit("setNews", []);
+    }
+  },
+  async filterNews({ commit }, query, value) {
+    try {
+      let response = await axios.get(`${state.apiUrl}`, {
+        params: {
+          q: query,
+          sortBy: value,
+          apiKey: `${state.apiKey}`,
+        },
+      });
+      console.log("successfuly filtered", response.data);
       commit("setNews", response.data.articles);
     } catch (err) {
       console.log(err);
