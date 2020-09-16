@@ -6,10 +6,7 @@
           Sort By
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          <v-radio-group
-            @change="filterNews($route.query.q, sortBy)"
-            v-model="sortBy"
-          >
+          <v-radio-group @change="filterNew()" v-model="sortBy">
             <v-radio
               v-for="(filter, index) in filters"
               :key="index"
@@ -39,6 +36,10 @@ export default {
   },
   methods: {
     ...mapActions(["filterNews"]),
+    filterNew() {
+      var req = [this.$route.query.q, this.sortBy];
+      this.filterNews(req);
+    },
   },
 };
 </script>

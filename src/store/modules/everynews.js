@@ -31,11 +31,11 @@ const mutations = {
 };
 
 const actions = {
-  async fetchNews({ commit }, query) {
+  async fetchNews({ commit }, search) {
     try {
       let response = await axios.get(`${state.apiUrl}`, {
         params: {
-          q: query,
+          q: search,
           apiKey: `${state.apiKey}`,
         },
       });
@@ -46,16 +46,17 @@ const actions = {
       commit("setNews", []);
     }
   },
-  async filterNews({ commit }, query, value) {
+  async filterNews({ commit }, arr) {
+    console.log(arr);
     try {
       let response = await axios.get(`${state.apiUrl}`, {
         params: {
-          q: query,
-          sortBy: value,
+          q: arr[0],
+          sortBy: arr[1],
           apiKey: `${state.apiKey}`,
         },
       });
-      console.log("successfuly filtered", response.data);
+      console.log("successfuly filtered", response);
       commit("setNews", response.data.articles);
     } catch (err) {
       console.log(err);

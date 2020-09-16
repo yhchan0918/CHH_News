@@ -4,7 +4,7 @@
       <v-row>
         <v-col>
           <v-text-field
-            @click:append="fetchNews(searchField)"
+            @click:append="searchSync()"
             v-model="searchField"
             append-icon="mdi-magnify"
             background-color="white"
@@ -39,6 +39,13 @@ export default {
   },
   methods: {
     ...mapActions(["fetchNews"]),
+    searchSync() {
+      this.$router.push({
+        path: "searchpage",
+        query: { q: this.searchField },
+      });
+      this.fetchNews(this.$route.query.q);
+    },
     checkSearch() {
       if (this.$route.query.q != "") {
         this.searchField = this.$route.query.q;
