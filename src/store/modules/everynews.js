@@ -12,7 +12,7 @@ function validateFilter(articles) {
 const state = {
   news: [],
   apiUrl: "https://newsapi.org/v2/everything",
-  apiKey: "fa9b477d367d459da5258d5da851ccb2",
+  apiKey: process.env.VUE_APP_API_KEY,
 };
 const getters = {
   allNews: (state) => state.news,
