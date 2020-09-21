@@ -38,7 +38,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["fetchNews"]),
+    ...mapActions("everynews", ["fetchNews"]),
     searchSync() {
       this.$router.push({
         path: "searchpage",
@@ -56,7 +56,7 @@ export default {
   mounted() {
     this.checkSearch();
   },
-  computed: mapGetters(["allNews"]),
+  computed: mapGetters("everynews", ["allNews"]),
   components: {
     HorizontalCard,
     FilterBar,
