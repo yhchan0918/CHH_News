@@ -18,9 +18,9 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Home",
   methods: {
-    ...mapActions(["fetchTopHeadlines"]),
+    ...mapActions("topheadlines", ["fetchTopHeadlines"]),
   },
-  computed: mapGetters(["allTopHeadlines"]),
+  computed: mapGetters("topheadlines", ["allTopHeadlines"]),
   created() {
     this.fetchTopHeadlines();
   },
