@@ -3,27 +3,31 @@
     <v-container>
       <h1 class="text-capitalize text-h3">{{ category }}</h1>
       <v-divider class="my-4"></v-divider>
+      <!--First Section -->
       <v-row>
         <v-col
           class="mb-0 pb-0"
+          style="width:50%;"
           v-for="first in topNews.slice(0, 1)"
           :key="first.title"
           cols="12"
         >
           <v-card flat :href="first.url">
             <v-img
-              lazy-src=""
+              position="center"
+              contain
+              max-width="100%"
               :src="first.urlToImage"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="500px"
+              height="400px"
             >
               <v-card-title v-text="first.title" class="text-h4"></v-card-title>
             </v-img>
           </v-card>
           <v-divider class="mt-5 pb-0"></v-divider>
         </v-col>
-
+        <!--Second Section -->
         <v-col
           class="my-0 py-0"
           cols="12"
@@ -44,6 +48,7 @@
         </v-col>
       </v-row>
     </v-container>
+    <!--Third Section -->
     <v-row style="background-color:black;">
       <v-col cols="12"
         ><h2 class="white--text ml-2  text-h4">Featured</h2></v-col
@@ -107,7 +112,7 @@ export default {
     },
   },
 
-  created() {
+  mounted() {
     this.fetchSpecificNews();
   },
 };
