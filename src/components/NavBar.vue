@@ -11,15 +11,24 @@
 
     <v-app-bar color="primary" app class="">
       <v-container>
-        <v-row justify="space-around" align="center">
-          <v-col sm="6"
-            ><router-link class="" to="/"
-              ><p class="red--text my-2 text-h5 font-weight-bold d-block">
+        <v-row align="center">
+          <v-col sm="8">
+            <router-link to="/"
+              ><span
+                class="red--text my-2 text-h5 font-weight-bold d-inline-block"
+              >
                 CHH
-              </p></router-link
+              </span></router-link
+            >
+            <v-row v-if="$vuetify.breakpoint.smAndUp" align="center">
+              <span class="mx-0" v-for="nav in navItems" :key="nav.text">
+                <v-btn class="white--text text-caption" :to="nav.route" text>
+                  {{ nav.text }}
+                </v-btn>
+              </span></v-row
             >
           </v-col>
-          <v-col sm="6" v-if="$vuetify.breakpoint.smAndUp">
+          <v-col sm="4" v-if="$vuetify.breakpoint.smAndUp">
             <v-text-field
               v-if="!['SearchPage'].includes($route.name)"
               @click:append="search"
@@ -55,6 +64,15 @@ export default {
     return {
       drawer: false,
       searchField: "",
+      navItems: [
+        { text: "Business", route: "/business" },
+        { text: "Entertainment", route: "/entertainment" },
+        { text: "General", route: "/general" },
+        { text: "Health", route: "/health" },
+        { text: "Science", route: "/science" },
+        { text: "Sports", route: "/sports" },
+        { text: "Technology", route: "/technology" },
+      ],
     };
   },
   methods: {

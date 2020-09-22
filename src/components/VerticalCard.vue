@@ -1,5 +1,6 @@
 <template>
   <v-card
+    flat
     outlined
     width="500"
     class=""

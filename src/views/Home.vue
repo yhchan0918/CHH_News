@@ -1,10 +1,11 @@
 <template>
   <div>
     <v-container>
-      <h1 class="">Top Headline</h1>
-      <v-row>
-        <v-col>
-          <NewsDisplay :topheadlines="allTopHeadlines" />
+      <h1 class="text-capitalize text-h3">Top Headline</h1>
+      <v-divider class="my-4"></v-divider>
+      <v-row class="mt-0 pt-0">
+        <v-col class="mt-0 pt-0">
+          <TopHeadlinesDisplay :topheadlines="allTopHeadlines" />
         </v-col>
       </v-row>
     </v-container>
@@ -12,7 +13,7 @@
 </template>
 
 <script>
-import NewsDisplay from "@/components/NewsDisplay.vue";
+import TopHeadlinesDisplay from "@/components/TopHeadlinesDisplay.vue";
 
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -25,7 +26,7 @@ export default {
     this.fetchTopHeadlines();
   },
   components: {
-    NewsDisplay,
+    TopHeadlinesDisplay,
   },
 };
 </script>
