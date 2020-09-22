@@ -103,12 +103,12 @@ export default {
       drawer: false,
       searchField: "",
       navItems: [
-        { text: "Business", route: "/business" },
-        { text: "Entertainment", route: "/entertainment" },
-        { text: "Health", route: "/health" },
-        { text: "Science", route: "/science" },
-        { text: "Sports", route: "/sports" },
-        { text: "Technology", route: "/technology" },
+        { text: "Business", route: "/news/business" },
+        { text: "Entertainment", route: "/news/entertainment" },
+        { text: "Health", route: "/news/health" },
+        { text: "Science", route: "/news/science" },
+        { text: "Sports", route: "/news/sports" },
+        { text: "Technology", route: "/news/technology" },
       ],
     };
   },

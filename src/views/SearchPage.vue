@@ -19,7 +19,7 @@
       </v-row>
       <v-row>
         <v-col cols><FilterBar /></v-col>
-        <v-col cols="12" v-for="news in allNews" :key="news.title">
+        <v-col cols="12" v-for="(news, index) in allNews" :key="index">
           <HorizontalCard :news="news" />
         </v-col>
       </v-row>
@@ -40,10 +40,22 @@ export default {
   methods: {
     ...mapActions("everynews", ["fetchNews"]),
     searchSync() {
-      this.$router.push({
-        path: "searchpage",
-        query: { q: this.searchField },
-      });
+      this.$router
+        .push({
+          name: "SearchPage",
+          query: { q: this.searchField },
+        })
+        .catch((err) => {
+          if (
+            err.name !== "NavigationDuplicated" &&
+            !err.message.includes(
+              "Avoided redundant navigation to current location"
+            )
+          ) {
+            // But print any other errors to the console
+            console.log(err);
+          }
+        });
       this.fetchNews(this.$route.query.q);
     },
     checkSearch() {

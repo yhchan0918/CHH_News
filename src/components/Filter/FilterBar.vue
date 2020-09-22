@@ -35,9 +35,10 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["filterNews"]),
+    ...mapActions("everynews", ["filterNews"]),
     filterNew() {
       var req = [this.$route.query.q, this.sortBy];
+      console.log(req);
       this.filterNews(req);
     },
   },
