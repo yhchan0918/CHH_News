@@ -1,13 +1,6 @@
 <template>
   <nav>
-    <v-navigation-drawer
-      color="primary"
-      absolute
-      temporary
-      dark
-      app
-      v-model="drawer"
-    >
+    <v-navigation-drawer color="primary" temporary dark app v-model="drawer">
       <v-list dense>
         <v-list-item
           class="my-3"
@@ -112,7 +105,6 @@ export default {
       navItems: [
         { text: "Business", route: "/business" },
         { text: "Entertainment", route: "/entertainment" },
-        { text: "General", route: "/general" },
         { text: "Health", route: "/health" },
         { text: "Science", route: "/science" },
         { text: "Sports", route: "/sports" },
