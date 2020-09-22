@@ -21,9 +21,10 @@ const actions = {
       params: {
         apiKey: `${state.apiKey}`,
         country: "us",
+        pageSize: 100,
       },
     });
-    console.log(response.data);
+
     commit("setTopHeadlines", response.data.articles);
   },
 };
