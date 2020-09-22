@@ -4,7 +4,7 @@
       <v-col
         sm="6"
         md="4"
-        v-for="(topheadline, index) in topheadlines"
+        v-for="(topheadline, index) in topheadlines.slice(0, -2)"
         :key="index"
       >
         <VerticalCard :news="topheadline" />

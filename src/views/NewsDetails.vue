@@ -19,7 +19,7 @@
               :src="first.urlToImage"
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="auto"
+              height="600px"
             >
               <v-card-title v-text="first.title" class="text-h4"></v-card-title>
             </v-img>
@@ -56,7 +56,7 @@
         cols="12"
         sm="6"
         lg="4"
-        v-for="thirdSection in topNews.slice(7, -1)"
+        v-for="thirdSection in topNews.slice(7, 16)"
         :key="thirdSection.title"
       >
         <v-card flat :href="thirdSection.url">
@@ -99,7 +99,7 @@ export default {
               apiKey: `${this.$store.state.topheadlines.apiKey}`,
               country: "us",
               category: this.category,
-              pageSize: 30,
+              pageSize: 40,
             },
           }
         );
