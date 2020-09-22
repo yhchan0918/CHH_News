@@ -1,6 +1,6 @@
 import axios from "axios";
 // Filter Function
-var key = ["urlToImage", "author", "description"];
+var key = ["urlToImage", "author", "description", "title"];
 function validateFilter(articles) {
   for (var i = 0; i < articles.length; i++) {
     if (articles[key[i]] === null) {
