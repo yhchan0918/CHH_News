@@ -1,7 +1,7 @@
 # CHH-news
 
 # About this web app
-It is a news website. It calls News API to fetch latest news. News pages are categorized into business, health, technology and et cetera. It also contain search feature that allow visitors to search for news with the keywords they desire to search. It is featured by redirecting to original websites of news by clicking the news itself. Technologies involved are VueJs, VueX, Vue router, Vuetify and Axios. 
+It is a VueJs-based News website. It calls News API to fetch latest news. News pages are categorized into business, health, technology and et cetera. It also contain search feature that allow visitors to search for news with the keywords they desire to search. It is featured by redirecting to original websites of news by clicking the news itself. Technologies involved are VueJs, VueX, Vue router, Vuetify and Axios. 
 
 ## Project setup
 
