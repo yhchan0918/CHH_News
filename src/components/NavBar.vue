@@ -115,7 +115,7 @@ export default {
   methods: {
     search() {
       this.$router.push({
-        path: "searchpage",
+        name: "SearchPage",
         query: { q: this.searchField },
       });
       this.searchField = "";

@@ -26,10 +26,10 @@ export default {
   name: "FilterBar",
   data() {
     return {
-      sortBy: "publishedAt",
+      sortBy: "relevancy",
       filters: [
-        { option: "Most Recent", value: "publishedAt" },
         { option: "Most Relevant", value: "relevancy" },
+        { option: "Most Recent", value: "publishedAt" },
         { option: "Most Popular", value: "popularity" },
       ],
     };

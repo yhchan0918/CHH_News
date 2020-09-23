@@ -35,11 +35,13 @@ const actions = {
     try {
       let response = await axios.get(`${state.apiUrl}`, {
         params: {
-          q: search,
+          qInTitle: search,
+          sortBy: "relevancy",
           apiKey: `${state.apiKey}`,
+          language: "en",
         },
       });
-
+      console.log("fetchnews", response.data.articles);
       commit("setNews", response.data.articles);
     } catch (err) {
       console.log(err);
@@ -47,16 +49,16 @@ const actions = {
     }
   },
   async filterNews({ commit }, arr) {
-    console.log(arr);
     try {
       let response = await axios.get(`${state.apiUrl}`, {
         params: {
-          q: arr[0],
+          qInTitle: arr[0],
           sortBy: arr[1],
+          language: "en",
           apiKey: `${state.apiKey}`,
         },
       });
-      console.log("successfuly filtered", response);
+      console.log("successfuly filtered", response.data.articles);
       commit("setNews", response.data.articles);
     } catch (err) {
       console.log(err);
